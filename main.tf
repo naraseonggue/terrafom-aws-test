@@ -34,9 +34,31 @@ module "ec2" {
 }
 
 module "db" {
-    source                      =   "./modules/db"
-}
+  source                        =   "./modules/db"
 
+  identifier                    =   "${var.db_identifier}"
+  
+  storage_type                  =   "gp2"
+  engine                        =   "mysql"
+  engine_version                =   "5.7"
+  instance_class                =   "db.t2.micro"
+  allocated_storage             =   20
+
+  name                          =   "${var.db_name}"
+  username                      =   "${var.db_username}"
+  password                      =   "${var.db_password}"
+  port                          =   "${var.db_port}"
+
+  vpc_security_group_ids        =   ["${aws_security_group.rds.id}"]
+  
+  # disable backups to create DB faster
+  backup_retention_period = "${var.db_backup_retention_period}"
+  subnet_ids = ["${module.vpc.database_subnets}"]
+  tags {
+    Group = "${var.name}"
+  }
+}
+ 
 module "elb" {
     source                      =   "./modules/elb"
 }
