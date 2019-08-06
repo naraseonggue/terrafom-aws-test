@@ -21,7 +21,7 @@ module "security_group" {
     sg_prefix                   =   "${local.project_name}"
     vpc_id                      =   "${module.vpc.vpc_id}"
     vpc_cidr_block              =   "${module.vpc.vpc_cidr_block}"
-    cloud9_ip                   =   "${var.cloud9_ip}"
+    sre-aws-mgmtvm_ip           =   "${var.sre-aws-mgmtvm_ip}"
 }
 
 module "ec2" {
