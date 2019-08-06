@@ -1,6 +1,6 @@
 variable "sg_prefix" {}
 
-variable "cloud9_ip" {}
+variable "sre-aws-mgmtvm_ip" {}
 
 variable "vpc_id" {}
 
