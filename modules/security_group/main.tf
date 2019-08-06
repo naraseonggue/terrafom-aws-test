@@ -17,9 +17,9 @@ resource "aws_security_group" "public_sg" {
   }
 }
 
-resource "aws_security_group_rule" "cloud9_access_ingress" {
+resource "aws_security_group_rule" "sre-aws-mgmtvm_access_ingress" {
   security_group_id             = "${aws_security_group.public_sg.id}"
-  description                   = "Allow ALL traffic for cloud9"
+  description                   = "Allow ALL traffic for sre-aws-mgmtvm"
   cidr_blocks                   = ["${var.sre-aws-mgmtvm_ip}/32"]
   from_port                     = 0
   protocol                      = "-1"
