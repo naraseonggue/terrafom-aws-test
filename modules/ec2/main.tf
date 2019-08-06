@@ -8,7 +8,6 @@ resource "aws_instance" "public_instance" {
 
   tags          =   {
     Name        =   "${var.public_instance_name}"
-    Managed_by  =   "terraform"
   }
 }
 
@@ -22,6 +21,5 @@ resource "aws_instance" "private_instance" {
 
   tags          =   {
     Name        =   "${var.private_instance_name}"
-    Managed_by  =   "terraform"
   }
 }
