@@ -1,5 +1,5 @@
 output "public_sg_id" {
-    description =   "The ID of Security Group to access cloud9"
+    description =   "The ID of Security Group to access sre-aws-mgmtvm"
     value       =   "${aws_security_group.public_sg.id}"
 }
 
