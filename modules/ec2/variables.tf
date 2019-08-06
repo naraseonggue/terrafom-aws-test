@@ -1,5 +1,6 @@
 variable "amazon_ami_id" {
-    default     =   "ami-095ca789e0549777d"
+    # AWS ubuntu 16.04 free tier
+    default     =   "ami-096c57cee908da809"
 }
 
 variable "public_instance_name" {}
@@ -14,7 +15,7 @@ variable "private_subnet_ids" {
 }
 
 variable "instance_type" {
-    default     =   "t3.micro"
+    default     =   "t2.micro"
 }
 
 variable "ec2_keypair" {}
