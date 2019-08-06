@@ -1,9 +1,6 @@
-provider "template" {
-    version             = "~> 2.1"
-}
-
 provider "aws"{
     region              =   "${var.aws_region}"
+    version             =   "~> 2.1"
 }
 
 module "vpc" { 
@@ -36,3 +33,10 @@ module "ec2" {
     private_security_group_id   =   "${module.security_group.private_sg_id}"
 }
 
+module "db" {
+    source                      =   "./modules/db"
+}
+
+module "elb" {
+    source                      =   "./modules/elb"
+}
